@@ -1,0 +1,51 @@
+﻿@model ArvutihooldusMVC.Models.Order
+
+@{
+    ViewData["Title"] = "Complete Order";
+}
+
+<h1>Confirmation</h1>
+
+<h4 style="color: red;">Do you want to mark this order as complete?</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CompleteOrder">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ID" />
+            <div class="form-group">
+                <label asp-for="ComputerType" class="control-label"></label>
+                <input asp-for="ComputerType" class="form-control" readonly/>
+                <span asp-validation-for="ComputerType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Service" class="control-label"></label>
+                <input asp-for="Service" class="form-control" readonly/>
+                <span asp-validation-for="Service" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" readonly/>
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Client" class="control-label"></label>
+                <input asp-for="Client" class="form-control" readonly/>
+                <span asp-validation-for="Client" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Confirm" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="UncompletedOrders">Cancel</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
