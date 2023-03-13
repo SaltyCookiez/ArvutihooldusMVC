@@ -212,7 +212,7 @@ namespace ArvutihooldusMVC.Controllers
         [Authorize]
         public async Task<IActionResult> UnpaidOrders()
         {
-            return View(await _context.Orders.Where(x => x.Paid == false && x.Complete == true).ToListAsync());
+            return View(await _context.Orders.Where(x => x.Paid == false).ToListAsync());
         }
 
         [Authorize]
