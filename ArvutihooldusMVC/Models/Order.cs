@@ -18,7 +18,7 @@ namespace ArvutihooldusMVC.Models
         public static double GetPrice(ComputerType computerType, Service service)
         {
             double[] priceMultiplierType = { 1.25, 1 };
-            double[] priceService = { 19.99, 59.99, 25.99, 15.99, 15.99 };
+            double[] priceService = { 20, 60, 26, 16, 16 };
             return priceMultiplierType[(int)computerType] * priceService[(int)service];
         }
     }
